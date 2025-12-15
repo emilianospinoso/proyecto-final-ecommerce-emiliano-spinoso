@@ -1,0 +1,148 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Pasticho / Lasagna de Carne",
+      "category": "comidas",
+      "price": 3000,
+      "stock": 20,
+      "image": "img/pasticho.JPG",
+      "description": "Delicioso pasticho tradicional con carne de primera y queso gratinado."
+    },
+    {
+      "id": 2,
+      "title": "Tequeños / Deditos de Queso",
+      "category": "comidas",
+      "price": 3000,
+      "stock": 20,
+      "image": "img/tequeños.JPG",
+      "description": "Tequeños rellenos de queso blanco, ideales para compartir."
+    },
+    {
+      "id": 3,
+      "title": "Ensalada Cesar Clásica / con Pollo",
+      "category": "comidas",
+      "price": 4000,
+      "stock": 20,
+      "image": "img/ensalada.JPG",
+      "description": "Fresca lechuga con aderezo cesar, crostones y opción de pollo."
+    },
+    {
+      "id": 4,
+      "title": "Pasta Alfredo con Pollo",
+      "category": "comidas",
+      "price": 4000,
+      "stock": 20,
+      "image": "img/pastas.JPG",
+      "description": "Pasta en salsa blanca cremosa tipo Alfredo acompañada de pollo."
+    },
+    {
+      "id": 5,
+      "title": "Cachitos de Jamón / Jamón y Queso",
+      "category": "comidas",
+      "price": 1000,
+      "stock": 20,
+      "image": "img/cachitos.JPG",
+      "description": "Cachitos horneados rellenos de jamón o jamón y queso."
+    },
+    {
+      "id": 6,
+      "title": "Junco-Parrilla",
+      "category": "comidas",
+      "price": 8000,
+      "stock": 20,
+      "image": "img/junco-parrilla.JPG",
+      "description": "Parrilla mixta especial de la casa."
+    },
+    {
+      "id": 7,
+      "title": "Pan de Jamón",
+      "category": "comidas",
+      "price": 5000,
+      "stock": 20,
+      "image": "img/pan de jamon.JPG",
+      "description": "Tradicional pan de jamón con pasas y aceitunas."
+    },
+    {
+      "id": 8,
+      "title": "Roles de Pan de Jamón",
+      "category": "comidas",
+      "price": 1000,
+      "stock": 20,
+      "image": "img/roles de pan de jamon.JPG",
+      "description": "Versión individual en roles del pan de jamón."
+    },
+    {
+      "id": 9,
+      "title": "Brownies",
+      "category": "postres",
+      "price": 1500,
+      "stock": 20,
+      "image": "img/brownies.JPG",
+      "description": "Bizcocho de chocolate denso y húmedo."
+    },
+    {
+      "id": 10,
+      "title": "Quesillo / Flan",
+      "category": "postres",
+      "price": 1500,
+      "stock": 20,
+      "image": "img/quesillo.JPG",
+      "description": "Postre dulce de leche y huevos con caramelo."
+    },
+    {
+      "id": 11,
+      "title": "Roles de Canela / con Chocolate",
+      "category": "postres",
+      "price": 1000,
+      "stock": 20,
+      "image": "img/roles2.JPG",
+      "description": "Roles glaseados de canela o con topping de chocolate."
+    },
+    {
+      "id": 12,
+      "title": "Torta Tres Leches",
+      "category": "postres",
+      "price": 2500,
+      "stock": 20,
+      "image": "img/tres leches.JPG",
+      "description": "Bizcocho humedecido en tres tipos de leche y merengue."
+    },
+    {
+      "id": 13,
+      "title": "Ponquesitos / Cupcakes",
+      "category": "postres",
+      "price": 1000,
+      "stock": 20,
+      "image": "img/ponquesitos.JPG",
+      "description": "Pequeños pasteles individuales decorados."
+    },
+    {
+      "id": 14,
+      "title": "Golfeados con Queso Rallado",
+      "category": "postres",
+      "price": 1000,
+      "stock": 20,
+      "image": "img/golfeados.JPG",
+      "description": "Pan dulce aromatizado con papelón y queso rallado."
+    },
+    {
+      "id": 15,
+      "title": "Torta Chocolatosa Matilda",
+      "category": "postres",
+      "price": 2500,
+      "stock": 20,
+      "image": "img/torta3.JPG",
+      "description": "Torta de chocolate rellena y cubierta de chocolate."
+    },
+    {
+      "id": 16,
+      "title": "Pie de Limón / Maracuyá",
+      "category": "postres",
+      "price": 2500,
+      "stock": 20,
+      "image": "img/pie de limon.JPG",
+      "description": "Base crujiente con crema cítrica y merengue."
+    }
+  ]
+}

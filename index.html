@@ -1,247 +1,383 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mi E-Commerce</title>
-    <link rel="stylesheet" href="css/styles.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-  </head>
 
-  <body>
-    <header
-      class="d-flex justify-content-between align-items-center p-3 bg-light"
-    >
-      <img
-        src="https://dummyimage.com/300x300/cccccc/000000.png"
-        width="100"
-        height="100"
-        alt="Logo"
-      />
-      <nav>
-        <ul class="menu d-flex list-unstyled gap-3">
-          <li class="itemMenu">
-            <a href="#productos" class="text-dark">Productos</a>
-          </li>
-          <li class="itemMenu">
-            <a href="#reseñas" class="text-dark">Reseñas</a>
-          </li>
-          <li class="itemMenu">
-            <a href="#carrito" class="text-dark" id="open-cart">
-              Carrito (<span id="cart-counter-nav">0</span>)
-            </a>
-          </li>
-          <li class="itemMenu">
-            <a href="#redes-sociales" class="text-dark">Redes Sociales</a>
-          </li>
-        </ul>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SaboresVenearg</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="img/logo_favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+  <header class="sticky-top bg-white shadow-sm" style="height: 80px;">
+    <div class="container d-flex justify-content-between align-items-center p-3">
+      <a href="#inicio">
+        <img src="img/Logo Sabores Venearg (1).png" alt="Logo Sabores Venearg" class="logo-flotante" />
+      </a>
+
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto gap-3 align-items-center me-4">
+            <li class="nav-item"><a href="#inicio" class="nav-link text-dark">Inicio</a></li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-dark" href="#" role="button"
+                data-bs-toggle="dropdown">Servicios</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#section-comidas">Comidas</a></li>
+                <li><a class="dropdown-item" href="#section-postres">Postres</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown">Acerca
+                de</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#nosotros">Nosotros</a></li>
+                <li><a class="dropdown-item" href="#historia">Nuestra Historia</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item"><a href="#reseñas" class="nav-link text-dark">Reseñas</a></li>
+            <li class="nav-item"><a href="#contacto" class="nav-link text-dark">Contacto</a></li>
+          </ul>
+        </div>
+
+        <a href="#carrito" class="btn btn-outline-primary position-relative d-flex align-items-center" id="open-cart">
+          Carrito
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+            id="cart-counter-nav">
+            0
+          </span>
+        </a>
       </nav>
-    </header>
+    </div>
+  </header>
 
-    <main class="main-content">
-      <section class="portada text-center p-5">
-        <h1>Mi web e-commerce</h1>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur
-          ducimus itaque rem!
-        </p>
-      </section>
+  <main class="main-content">
+    <section id="inicio" class="container my-5 text-center">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-11">
+          <h1 class="display-4 fw-bold mb-3">Sabores Venearg</h1>
+          <h2 class="mb-4">Rinconcito de sabores Venezolanos en Argentina</h2>
 
-      <section id="productos" class="contenedorCards container my-5">
-        <h2 class="text-center">Productos</h2>
-        <div
-          id="productos-container"
-          class="d-flex flex-wrap justify-content-around gap-3"
-        >
-          <!-- Productos serán insertados aquí -->
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos rerum natus culpa odio
+            accusantium vel tenetur distinctio error optio fuga, illo atque, ipsa consectetur
+            porro
+            quis perferendis. Doloremque, maiores. Fugiat. Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            Placeat tenetur et dolor. Accusamus quis, suscipit vero voluptatibus iure ipsum sit ipsam voluptatum, at
+            magnam, dolore nemo illo sapiente animi sint.</p>
+
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa laudantium laborum,
+            reprehenderit suscipit necessitatibus sequi quibusdam facere eveniet reiciendis
+            sapiente
+            accusamus assumenda. Quisquam quia necessitatibus vero libero doloribus placeat
+            officia? Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis exercitationem ipsam quia
+            non voluptate quod, earum deserunt pariatur dicta odio fugiat possimus vero, repellendus, labore illum
+            inventore qui. Odit, commodi!</p>
+
+          <div class="mt-4">
+            <img src="img/Logo Sabores Venearg (1).png" alt="logo-grande" class="img-fluid" style="max-width: 350px;">
+          </div>
+
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Sección de reseñas -->
-      <section id="reseñas" class="container my-5">
-        <h2 class="text-center">Reseñas</h2>
-        <div class="row">
-          <div class="col-12 col-md-4">
-            <div class="card">
-              <img
-                src="https://dummyimage.com/150x150/cccccc/000000.png"
-                width="150"
-                height="150"
-                class="card-img-top"
-                alt="Cliente 1"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Cliente 1</h5>
-                <p class="card-text">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure
-                  asperiores nobis voluptatum corporis eos atque accusamus
-                  provident unde.
-                </p>
-              </div>
-            </div>
+    <section id="section-comidas" class="contenedorCards container my-5 bg-light p-5 rounded shadow-sm">
+      <h2 class="text-center mb-5 separator">Comidas</h2>
+      <div id="contenedor-comidas" class="row g-4">
+        <!-- Productos serán insertados aquí -->
+      </div> 
+    </section>
+
+    <section id="section-postres" class="contenedorCards container my-5 bg-light p-5 rounded shadow-sm">
+      <h2 class="text-center mb-5 separator">Postres</h2>
+      <div id="contenedor-postres" class="row g-4">
+        <!-- Productos serán insertados aquí -->
+      </div>
+    </section>
+
+
+    <!-- Sección de Nosotros-->
+    <section id="nosotros" class="container my-5 bg-light p-5 rounded shadow-sm">
+
+      <h2 class="text-center mb-5 separator">Nosotros</h2>
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-11">
+
+          <div class="mb-5">
+            <h3 class="h4 mb-3">Misión</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sollicitudin euismod mattis. Praesent
+              nec felis sagittis, semper metus et, placerat mi. Sed et fermentum sem, ac molestie felis. Etiam
+              gravida rutrum dui eu imperdiet. Aliquam ut sem non justo interdum interdum eu sodales ante.
+              Aenean ut convallis velit. Curabitur iaculis purus a ligula imperdiet, non auctor quam blandit.
+              Vestibulum vitae purus accumsan velit dapibus maximus. Donec felis lacus, scelerisque sed arcu
+              eget, commodo euismod sapien. Integer non porttitor sapien. In elementum libero sem, quis dictum
+              leo efficitur in. Aenean iaculis pellentesque erat ac suscipit. Class aptent taciti sociosqu ad
+              litora torquent per conubia nostra, per inceptos himenaeos. Orci varius natoque penatibus et
+              magnis dis parturient montes, nascetur ridiculus mus. Nulla eu viverra quam. Sed at imperdiet
+              leo. Nunc euismod, felis interdum mollis facilisis, augue turpis vulputate metus, eget pretium
+              tortor est id arcu.</p>
           </div>
-          <div class="col-12 col-md-4">
-            <div class="card">
-              <img
-                src="https://dummyimage.com/150x150/cccccc/000000.png"
-                width="150"
-                height="150"
-                class="card-img-top"
-                alt="Cliente 2"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Cliente 2</h5>
-                <p class="card-text">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel
-                  similique ipsa et laudantium, animi ea eligendi quibusdam quis
-                  dolorum nulla.
-                </p>
-              </div>
-            </div>
+
+          <div>
+            <h3 class="h4 mb-3">Visión</h3>
+            <p>Ut tincidunt posuere felis, et bibendum tortor hendrerit nec. Duis aliquet porttitor lorem a
+              dictum. Aliquam tincidunt ultricies elit. Nullam rutrum sagittis ante quis ornare. Pellentesque
+              feugiat diam sit amet enim aliquam finibus. Nulla facilisi. Maecenas ornare sapien euismod lacus
+              suscipit, eget molestie felis cursus. Curabitur egestas erat in nunc facilisis suscipit.
+              Phasellus mi ex, accumsan et orci sed, ultrices iaculis mi. Nunc vel pretium turpis. Praesent
+              viverra nibh elit, sed porttitor sapien varius vel. Suspendisse non bibendum nulla. Orci varius
+              natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent posuere sem
+              arcu, eu maximus purus ullamcorper ut. Aliquam sit amet ligula tristique ante egestas bibendum
+              eget quis orci. Suspendisse semper tempor ultricies. Fusce non nulla at diam commodo maximus.
+              Phasellus viverra diam sed arcu vestibulum sollicitudin. Pellentesque ut purus accumsan,
+              condimentum ex ac, efficitur quam. Praesent posuere ipsum non quam sagittis aliquet at eget
+              quam. Pellentesque tristique eros tortor, vel facilisis ipsum tincidunt faucibus. Fusce
+              fringilla mollis leo imperdiet eleifend. Vivamus tortor massa, consectetur eu mauris non,
+              tincidunt eleifend nibh. Curabitur consequat vel tortor nec tincidunt. Phasellus faucibus et
+              nunc condimentum luctus.</p>
           </div>
-          <div class="col-12 col-md-4">
-            <div class="card">
-              <img
-                src="https://dummyimage.com/150x150/cccccc/000000.png"
-                width="150"
-                height="150"
-                class="card-img-top"
-                alt="Cliente 3"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Cliente 3</h5>
-                <p class="card-text">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
-                  ullam illo facilis sint. Ullam omnis dolores inventore?
-                </p>
-              </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección de Historia-->
+    <section id="historia" class="container my-5 bg-light p-5 rounded shadow-sm">
+      <h2 class="text-center mb-4">Nuestra Historia</h2>
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-11">
+          
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sollicitudin euismod mattis. Praesent
+            nec felis sagittis, semper metus et, placerat mi. Sed et fermentum sem, ac molestie felis. Etiam
+            gravida rutrum dui eu imperdiet. Aliquam ut sem non justo interdum interdum eu sodales ante.
+            Aenean ut convallis velit. Curabitur iaculis purus a ligula imperdiet, non auctor quam blandit.
+            Vestibulum vitae purus accumsan velit dapibus maximus. Donec felis lacus, scelerisque sed arcu
+            eget, commodo euismod sapien. Integer non porttitor sapien. In elementum libero sem, quis dictum
+            leo efficitur in. Aenean iaculis pellentesque erat ac suscipit. Class aptent taciti sociosqu ad
+            litora torquent per conubia nostra, per inceptos himenaeos. Orci varius natoque penatibus et
+            magnis dis parturient montes, nascetur ridiculus mus. Nulla eu viverra quam. Sed at imperdiet
+            leo. Nunc euismod, felis interdum mollis facilisis, augue turpis vulputate metus, eget pretium
+            tortor est id arcu.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sollicitudin euismod mattis. Praesent
+            nec felis sagittis, semper metus et, placerat mi. Sed et fermentum sem, ac molestie felis. Etiam
+            gravida rutrum dui eu imperdiet. Aliquam ut sem non justo interdum interdum eu sodales ante.
+            Aenean ut convallis velit. Curabitur iaculis purus a ligula imperdiet, non auctor quam blandit.
+            Vestibulum vitae purus accumsan velit dapibus maximus. Donec felis lacus, scelerisque sed arcu
+            eget, commodo euismod sapien. Integer non porttitor sapien. In elementum libero sem, quis dictum
+            leo efficitur in. Aenean iaculis pellentesque erat ac suscipit. Class aptent taciti sociosqu ad
+            litora torquent per conubia nostra, per inceptos himenaeos. Orci varius natoque penatibus et
+            magnis dis parturient montes, nascetur ridiculus mus. Nulla eu viverra quam. Sed at imperdiet
+            leo. Nunc euismod, felis interdum mollis facilisis, augue turpis vulputate metus, eget pretium
+            tortor est id arcu.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección de reseñas -->
+    <section id="reseñas" class="container my-5 bg-light p-5 rounded shadow-sm">
+      <h2 class="text-center separator">Lo que dicen nuestros clientes</h2>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="card h-100 text-center border-0 shadow-sm p-3">
+            <img
+              src="img/png-transparent-female-avatar-girl-face-woman-user-flat-classy-users-icon-thumbnail-removebg-preview.png"
+              class="rounded-circle mx-auto d-block" width="100" height="100" alt="Cliente 1">
+            <div class="card-body">
+              <h5 class="card-title">María Pérez</h5>
+              <p class="card-text text-muted small">"La mejor comida venezolana que he probado en Buenos Aires. ¡Recomendado!"</p>
             </div>
           </div>
         </div>
-      </section>
-    </main>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="card h-100 text-center border-0 shadow-sm p-3">
+            <img src="img/png-transparent-male-avatar-boy-face-man-user-flat-classy-users-icon-removebg-preview.png"
+              class="rounded-circle mx-auto d-block" width="100" height="100" alt="Cliente 2">
+            <div class="card-body">
+              <h5 class="card-title">Juan Rodríguez</h5>
+              <p class="card-text text-muted small">"Los tequeños son increíbles, llegaron calientes y crujientes."</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="card h-100 text-center border-0 shadow-sm p-3">
+            <img
+              src="img/png-transparent-female-avatar-girl-face-woman-user-flat-classy-users-icon__1_-removebg-preview.png"
+              class="rounded-circle mx-auto d-block" width="100" height="100" alt="Cliente 3">
+            <div class="card-body">
+              <h5 class="card-title">Ana García</h5>
+              <p class="card-text text-muted small">"Excelente atención y los precios son muy accesibles."</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="card h-100 text-center border-0 shadow-sm p-3">
+            <img
+              src="img/png-transparent-male-avatar-boy-face-man-user-flat-classy-users-icon-thumbnail-removebg-preview.png"
+              class="rounded-circle mx-auto d-block" width="100" height="100" alt="Cliente 4">
+            <div class="card-body">
+              <h5 class="card-title">Carlos López</h5>
+              <p class="card-text text-muted small">"El pan de jamón en navidad es imperdible. Volveré a comprar."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <!-- CARRITO SIDEBAR -->
-    <div id="cart-sidebar" class="cart-sidebar">
-      <div class="cart-header">
-        <h3>Carrito <span id="cart-counter" class="cart-counter">0</span></h3>
+    <section id="contacto" class="container my-5 bg-light p-5 rounded shadow-sm mb-5">
+      <h2 class="text-center separator">Contáctanos</h2>
+      <div class="row g-4">
+        <div class="col-12 col-md-6">
+          <div class="p-4 bg-light rounded shadow-sm h-100">
+            <h4 class="mb-3">Envíanos un mensaje</h4>
+            <form id="contact-form">
+              <div class="mb-3">
+                <input type="text" class="form-control" placeholder="Tu Nombre" required>
+              </div>
+              <div class="mb-3">
+                <input type="email" class="form-control" placeholder="Tu Email" required>
+              </div>
+              <div class="mb-3">
+                <input type="number" class="form-control" placeholder="Tu Teléfono" required>
+              </div>
+              <div class="mb-3">
+                <textarea class="form-control" rows="4" placeholder="¿En qué podemos ayudarte?" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary w-100">Enviar Consulta</button>
+            </form>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="h-100 rounded overflow-hidden shadow-sm">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.687106869156!2d-58.4206583!3d-34.6120583!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca5e3d7783d1%3A0x66c30424560751!2sDon%20Bosco%203700%2C%20C1206%20CABA!5e0!3m2!1ses!2sar!4v1700000000000!5m2!1ses!2sar"
+              width="100%" height="100%" style="border:0; min-height: 350px;" allowfullscreen="" loading="lazy">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <footer class="bg-dark text-light pt-5 pb-3">
+    <div class="container">
+      <div class="row g-4 text-center text-md-start">
+        <div class="col-12 col-md-4">
+          <img src="img/Logo Sabores Venearg (1).png" width="100" height="100" alt="Logo"
+            class="mb-3 bg-light rounded-circle p-1">
+          <h5>Síguenos</h5>
+          <div class="d-flex justify-content-center justify-content-md-start gap-3 mt-2">
+            <a href="https://www.facebook.com/Sabores.venearg" target="_blank" class="text-light text-decoration-none">
+              <img
+                src="img/png-transparent-black-and-white-dark-grey-facebook-transparent-on-dark-grey-icon-thumbnail-removebg-preview.png"
+                alt="Facebook" width="50" height="50" /></a>
+            <a href="https://www.instagram.com/sabores.venearg" target="_blank" class="text-light text-decoration-none">
+              <img
+                src="img/png-transparent-computer-icons-white-instagram-icon-text-logo-area-thumbnail-removebg-preview.png"
+                alt="Instagram" width="50" height="50" /></a>
+            <a href="https://wa.me/message/YZ36JFB4G6PKJ1" target="_blank" class="text-light text-decoration-none">
+              <img
+                src="img/png-clipart-telephone-call-logo-whatsapp-logo-computer-icons-whatsapp-cdr-text-thumbnail-removebg-preview.png"
+                width="50" height="50" alt="Whatsapp" /></a>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4 text-center">
+          <h5>Ubicación</h5>
+          <p class="small text-white-50">
+            Don Bosco 3700, Almagro<br>
+            Ciudad Autónoma de Bs.As.<br>
+            Argentina
+          </p>
+        </div>
+
+        <div class="col-12 col-md-4 text-center text-md-end">
+          <h5>Enlaces Rápidos</h5>
+          <ul class="list-unstyled">
+            <li><a href="#section-comidas" class="text-white-50 text-decoration-none">Comidas</a></li>
+            <li><a href="#section-postres" class="text-white-50 text-decoration-none">Postres</a></li>
+            <!-- <li><a href="#registro" class="text-white-50 text-decoration-none">Pedidos</a></li> -->
+            <li><a href="#contacto" class="text-white-50 text-decoration-none">Contacto</a></li>
+          </ul>
+        </div>
       </div>
 
-      <div class="cart-content">
-        <div id="carrito-items" class="cart-items">
-          <!-- Items del carrito serán insertados aquí -->
+      <hr class="border-secondary my-4">
+
+      <div class="text-center small text-white-50">
+        <p>&copy; 2025 Erika Oropeza. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div id="cart-sidebar" class="bg-white shadow h-100 position-fixed top-0 end-0" style="width: 320px; z-index: 1050; transform: translateX(100%); transition: transform 0.3s ease-in-out;">
+    <div class="d-flex justify-content-between align-items-center p-3 border-bottom bg-light">
+      <h5 class="mb-0">Tu Carrito (<span id="cart-counter">0</span>)</h5>
+      <button onclick="toggleCart()" class="btn-close"></button>
+    </div>
+
+    <div id="carrito-items" class="p-3" style="height: calc(100% - 200px); overflow-y: auto;"></div>
+
+    <div class="p-3 border-top position-absolute bottom-0 w-100 bg-white">
+      <div class="d-flex justify-content-between mb-3">
+        <span class="fw-bold">Total:</span>
+        <span class="fw-bold fs-5">$<span id="carrito-total">0</span></span>
+      </div>
+      <div class="d-grid gap-2">
+        <button id="realizar-compra" class="btn btn-success">Finalizar Compra</button>
+        <button id="vaciar-carrito" class="btn btn-outline-danger btn-sm">Vaciar Carrito</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="cart-overlay" class="position-fixed top-0 start-0 w-100 h-100 bg-dark opacity-50" style="display: none; z-index: 1040;"></div>
+
+  <div class="modal fade" id="compraExitosaModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-success text-white">
+          <h5 class="modal-title">¡Compra Realizada!</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-
-        <div class="cart-footer">
-          <div class="cart-total">
-            <strong>Total: $<span id="carrito-total">0</span></strong>
-          </div>
-
-          <div class="cart-actions">
-            <button id="vaciar-carrito" class="btn btn-danger btn-sm">
-              Vaciar
-            </button>
-            <button id="realizar-compra" class="btn btn-success">
-              Comprar
-            </button>
-          </div>
+        <div class="modal-body text-center py-4">
+          <div class="display-1 text-success mb-3">✓</div>
+          <h4>¡Muchas gracias!</h4>
+          <p class="text-muted">Tu pedido ha sido procesado correctamente.</p>
+          <p class="fw-bold mt-3">Total pagado: $<span id="modal-total">0</span></p>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-success px-4" data-bs-dismiss="modal">Aceptar</button>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Overlay para móviles -->
-    <div id="cart-overlay" class="cart-overlay"></div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+  <script>
+    function toggleCart() {
+      const sidebar = document.getElementById('cart-sidebar');
+      const overlay = document.getElementById('cart-overlay');
+      if (sidebar.style.transform === 'translateX(0%)') {
+        sidebar.style.transform = 'translateX(100%)';
+        overlay.style.display = 'none';
+      } else {
+        sidebar.style.transform = 'translateX(0%)';
+        overlay.style.display = 'block';
+      }
+    }
+    document.getElementById('cart-overlay').addEventListener('click', toggleCart);
+    // El botón del nav ya tiene el evento en tu archivo JS principal, así que no lo duplico aquí.
+  </script>
+</body>
 
-    <!-- Modal de Compra Exitosa -->
-    <div
-      class="modal fade"
-      id="compraExitosaModal"
-      tabindex="-1"
-      aria-labelledby="compraExitosaModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header bg-success text-white">
-            <h5 class="modal-title" id="compraExitosaModalLabel">
-              ¡Compra Realizada!
-            </h5>
-            <button
-              type="button"
-              class="btn-close btn-close-white"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body text-center">
-            <div class="mb-3">
-              <div class="text-success" style="font-size: 4rem">✓</div>
-            </div>
-            <h4>¡Tu compra se realizó exitosamente!</h4>
-            <p class="text-muted">
-              Gracias por tu compra. Recibirás un email de confirmación con los
-              detalles de tu pedido.
-            </p>
-            <p>
-              <strong>Total pagado: $<span id="modal-total">0</span></strong>
-            </p>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-success"
-              data-bs-dismiss="modal"
-            >
-              Continuar Comprando
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <footer
-      id="redes-sociales"
-      class="bg-light p-4 mt-5 d-flex justify-content-between align-items-center"
-    >
-      <img
-        src="https://dummyimage.com/120x120/cccccc/000000.png"
-        width="120"
-        height="120"
-        alt="Logo"
-      />
-      <div class="d-flex gap-4">
-        <a href="https://www.facebook.com" target="_blank">
-          <img
-            src="https://dummyimage.com/60x60/cccccc/000000.png"
-            width="60"
-            height="60"
-            alt="Facebook"
-          />
-        </a>
-        <a href="https://www.instagram.com" target="_blank">
-          <img
-            src="https://dummyimage.com/60x60/cccccc/000000.png"
-            width="60"
-            height="60"
-            alt="Instagram"
-          />
-        </a>
-        <a href="https://www.x.com" target="_blank">
-          <img
-            src="https://dummyimage.com/600x60/cccccc/000000.png"
-            width="60"
-            height="60"
-            alt="Twitter"
-          />
-        </a>
-      </div>
-    </footer>
-
-    <script src="js/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-  </body>
 </html>

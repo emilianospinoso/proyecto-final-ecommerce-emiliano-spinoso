@@ -1,11 +1,57 @@
 body {
   font-family: "Roboto", sans-serif;
+  color: #333;
   padding-top: 10px;
   margin-right: 0;
+  overflow-x: hidden;
+}
+
+p{
+  text-align: justify;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+header {
+    position: relative; /* Necesario para que el logo se ubique respecto al header */
+    z-index: 1000;      /* Asegura que el menú quede por encima del contenido */
+}
+
+h2.separator {
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 50px;
+    font-weight: 700;
+    color: #000;
+}
+
+/* La línea roja debajo de los títulos */
+h2.separator::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: #813689; /* Rojo Bootstrap (Cámbialo al color de tu marca si quieres) */
+}
+
+.logo-flotante{
+  position: absolute;
+  top: 0;
+  left: 5%;
+  width: 140px;
+  height: auto;
+  z-index: 1001;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.15));
+  background-color: transparent;
+  border-radius: 50%;
+  padding: 5px;
 }
 
 .main-content {
-  margin-right: 350px;
   transition: margin-right 0.3s ease;
 }
 
@@ -44,7 +90,7 @@ body {
 }
 
 .cart-counter {
-  background-color: #dc3545;
+  background-color: #813689;
   color: white;
   border-radius: 50%;
   padding: 0.2rem 0.5rem;
@@ -81,7 +127,6 @@ body {
   width: 60px;
   height: 60px;
   object-fit: contain;
-  filter: grayscale(100%);
   border-radius: 0.25rem;
 }
 
@@ -105,7 +150,7 @@ body {
 .cart-item-price {
   font-size: 0.9rem;
   font-weight: 600;
-  color: #198754;
+  color: #813689;
 }
 
 .cart-item-remove {
@@ -154,6 +199,11 @@ body {
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
+  .logo-flotante {
+        width: 90px;
+        left: 15px;
+    }
+
   .main-content {
     margin-right: 0;
   }
@@ -194,7 +244,6 @@ a:hover,
 }
 
 .card img {
-  filter: grayscale(100%);
   max-height: 150px;
   object-fit: contain;
   margin-bottom: 10px;
@@ -222,8 +271,25 @@ a:hover,
   padding: 10px;
 }
 
+
+@media (min-width: 1400px) {
+    .container {
+        max-width: 90% !important; /* Ocupará el 90% de la pantalla en monitores grandes */
+    }
+}
+@media (min-width: 1200px) and (max-width: 1399px) {
+    .container {
+        max-width: 95% !important; 
+    }
+}
+
 /* Media Queries para la sección de contacto */
 @media (max-width: 768px) {
+  .logo-flotante {
+        width: 90px;    /* Más pequeño en celular */
+        left: 10px;     /* Menos margen */
+    }
+
   #contacto .form-control {
     margin-bottom: 15px;
   }
@@ -248,7 +314,7 @@ a:hover,
 
 /* Estilo para botón de agregar al carrito */
 .btn-added {
-  background-color: #28a745;
+  background-color: #813689;
   color: white;
 }
 
@@ -256,7 +322,7 @@ a:hover,
 .btn-link {
   padding-left: 0;
   font-size: 14px;
-  color: #007bff;
+  color: #813689;
 }
 
 /* Footer Styling */
@@ -280,10 +346,11 @@ footer ul li a {
 }
 
 footer ul li a:hover {
-  color: #007bff;
+  color: #813689;
 }
 
 footer .bg-dark {
   background-color: #343a40 !important;
   padding: 10px 0;
 }
+
