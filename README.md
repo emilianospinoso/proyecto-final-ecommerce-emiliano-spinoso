@@ -55,7 +55,8 @@ El sistema destaca por su capacidad de **persistencia de datos y gestión de sto
 │
 └── img/                # Recursos gráficos
 
-## 🔐 Credenciales de Acceso
+
+ 🔐 Credenciales de Acceso
 Para ingresar al Panel de Administración y probar las funcionalidades de gestión:
 
 Hacer clic en el botón "Acceso Admin" en el footer o en el engranaje flotante.
@@ -66,7 +67,7 @@ Usuario: admin
 
 Contraseña: 1234
 
-## 📦 Instalación y Uso
+ 📦 Instalación y Uso
 Clonar el repositorio o descargar el ZIP.
 
 Importante: Abrir el proyecto utilizando Live Server (extensión de VS Code) o un servidor local equivalente.
@@ -77,7 +78,7 @@ Al iniciar por primera vez, la aplicación cargará los datos desde products.jso
 
 Cualquier cambio realizado en el Admin (precios, stock) se guardará en el navegador y se reflejará instantáneamente en la tienda.
 
-## 🔄 Flujo de Datos (Lógica del Sistema)
+ 🔄 Flujo de Datos (Lógica del Sistema)
 El proyecto utiliza una arquitectura híbrida de datos:
 
 Carga Inicial: El sistema verifica si existe una base de datos en localStorage.
