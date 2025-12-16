@@ -4,66 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Sabores Venearg</title>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        body { display: flex; min-height: 100vh; overflow-x: hidden; }
-        #sidebar { min-width: 250px; max-width: 250px; min-height: 100vh; background: #343a40; color: white; transition: all 0.3s; }
-        #sidebar .nav-link { color: rgba(255,255,255,0.8); margin-bottom: 5px; }
-        #sidebar .nav-link:hover, #sidebar .nav-link.active { color: white; background: #dc3545; border-radius: 5px; }
-        #content { width: 100%; padding: 20px; background: #f8f9fa; }
-        .card-counter { box-shadow: 2px 2px 10px #DADADA; margin: 5px; padding: 20px 10px; background-color: #fff; height: 100px; border-radius: 5px; transition: .3s linear all; }
-        .card-counter:hover { box-shadow: 4px 4px 20px #DADADA; transition: .3s linear all; }
-        .text-truncate-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-    </style>
+    
+    <link rel="stylesheet" href="css/admin.css">
 </head>
 <body>
 
-    <nav id="sidebar" class="p-3">
-        <div class="sidebar-header text-center mb-4">
+    <nav id="sidebar">
+        <div class="sidebar-header text-center">
             <h4>TECHLAB SYSTEM</h4>
-            <small>Gestión Sabores Venearg</small>
+            <small class="text-white-50">Gestión Sabores Venearg</small>
         </div>
 
-        <ul class="nav flex-column components">
+        <ul class="nav flex-column components mt-2">
             <li class="nav-item">
                 <a href="#" class="nav-link active" onclick="mostrarSeccion('dashboard')">
                     <i class="fas fa-home me-2"></i> Inicio
                 </a>
             </li>
+            
             <li class="nav-item">
                 <a href="#" class="nav-link" onclick="mostrarSeccion('productos')">
                     <i class="fas fa-box me-2"></i> 1) Gestionar Productos
                 </a>
             </li>
+            
             <li class="nav-item">
-                <a href="#" class="nav-link" onclick="alert('Función en desarrollo')">
+                <a href="#" class="nav-link" onclick="alert('Módulo de Categorías en construcción')">
                     <i class="fas fa-tags me-2"></i> 2) Categorías
                 </a>
             </li>
+            
             <li class="nav-item">
                 <a href="index.html#carrito" class="nav-link" target="_blank">
                     <i class="fas fa-shopping-cart me-2"></i> 3) Ver Carrito (Web)
                 </a>
             </li>
+            
             <li class="nav-item">
                 <a href="#" class="nav-link" onclick="mostrarSeccion('nuevo-pedido')">
                     <i class="fas fa-cash-register me-2"></i> 4) Realizar Pedido
                 </a>
             </li>
+            
             <li class="nav-item">
-                <a href="#" class="nav-link" onclick="alert('Función en desarrollo')">
+                <a href="#" class="nav-link" onclick="alert('Historial en construcción')">
                     <i class="fas fa-history me-2"></i> 5) Historial Pedidos
                 </a>
             </li>
+            
             <li class="nav-item">
-                <a href="#" class="nav-link" onclick="alert('Función en desarrollo')">
+                <a href="#" class="nav-link" onclick="alert('Administración de usuarios en construcción')">
                     <i class="fas fa-users-cog me-2"></i> 6) Administración
                 </a>
             </li>
+            
             <li class="nav-item mt-4 border-top pt-2">
-                <a href="index.html" class="nav-link text-danger">
-                    <i class="fas fa-sign-out-alt me-2"></i> 7) Salir / Ir a Tienda
+                <a href="#" class="nav-link text-danger fw-bold" onclick="cerrarSesion()">
+                    <i class="fas fa-sign-out-alt me-2"></i> 7) Salir / Cerrar Sesión
                 </a>
             </li>
         </ul>
@@ -72,46 +73,50 @@
     <div id="content">
         
         <div id="seccion-dashboard">
-            <h2>Bienvenido al Panel de Control</h2>
-            <div class="row mt-4">
-                <div class="col-md-3">
+            <h2 class="mb-4">Panel de Control</h2>
+            <div class="row g-3">
+                <div class="col-12 col-md-4">
                     <div class="card-counter border-start border-4 border-primary">
-                        <i class="fa fa-box fa-2x text-primary float-end"></i>
-                        <h6 class="text-muted text-uppercase">Productos</h6>
+                        <i class="fa fa-box fa-2x text-primary float-end opacity-50"></i>
+                        <h6 class="text-muted text-uppercase">Total Productos</h6>
                         <h2 id="dash-total-productos">0</h2>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-12 col-md-4">
                     <div class="card-counter border-start border-4 border-danger">
-                        <i class="fa fa-exclamation-triangle fa-2x text-danger float-end"></i>
-                        <h6 class="text-muted text-uppercase">Stock Bajo</h6>
+                        <i class="fa fa-exclamation-triangle fa-2x text-danger float-end opacity-50"></i>
+                        <h6 class="text-muted text-uppercase">Stock Crítico (< 5)</h6>
                         <h2 id="dash-stock-bajo">0</h2>
                     </div>
                 </div>
+            </div>
+            
+            <div class="alert alert-info mt-4 shadow-sm">
+                <i class="fas fa-info-circle"></i> Bienvenido al sistema de gestión. Selecciona una opción del menú lateral para comenzar.
             </div>
         </div>
 
         <div id="seccion-productos" style="display: none;">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h2>Gestión de Productos</h2>
-                <button class="btn btn-success" onclick="abrirModalProducto()">
+                <button class="btn btn-success shadow" onclick="abrirModalProducto()">
                     <i class="fas fa-plus"></i> a) Agregar Producto
                 </button>
             </div>
 
-            <div class="card p-3 mb-4">
+            <div class="card p-3 mb-4 border-0 shadow-sm">
                 <div class="row g-3">
-                    <div class="col-md-4">
+                    <div class="col-md-5">
                         <div class="input-group">
-                            <span class="input-group-text"><i class="fas fa-search"></i></span>
-                            <input type="text" id="buscar-producto" class="form-control" placeholder="c) Buscar por ID o Nombre...">
+                            <span class="input-group-text bg-white border-end-0"><i class="fas fa-search text-muted"></i></span>
+                            <input type="text" id="buscar-producto" class="form-control border-start-0" placeholder="c) Buscar por ID o Nombre...">
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="table-responsive bg-white rounded shadow-sm p-3">
-                <table class="table table-hover align-middle">
+            <div class="table-responsive shadow-sm rounded bg-white">
+                <table class="table table-hover align-middle mb-0">
                     <thead class="table-light">
                         <tr>
                             <th>ID</th>
@@ -131,60 +136,60 @@
 
         <div id="seccion-nuevo-pedido" style="display: none;">
             <h2>Crear Nuevo Pedido</h2>
-            <p>Seleccione productos para descontar stock manualmente.</p>
-            <div class="alert alert-info">
-                Módulo en construcción. Aquí implementarás la lógica de selección de productos y descuento de stock.
+            <div class="card p-5 text-center mt-4 border-0 shadow-sm">
+                <i class="fas fa-tools fa-3x text-muted mb-3"></i>
+                <h3 class="text-muted">En Construcción</h3>
+                <p>Aquí irá el formulario para registrar pedidos manuales descontando stock.</p>
             </div>
         </div>
 
-    </div>
-
-    <div class="modal fade" id="productoModal" tabindex="-1">
-        <div class="modal-dialog">
+    </div> <div class="modal fade" id="productoModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header bg-dark text-white">
-                    <h5 class="modal-title" id="modalTitle">Agregar Producto</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    <h5 class="modal-title" id="modalTitle">Producto</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                 </div>
                 <div class="modal-body">
                     <form id="productoForm">
-                        <input type="hidden" id="prodId">
-                        
-                        <div class="mb-3">
-                            <label class="form-label">Nombre del Producto</label>
-                            <input type="text" class="form-control" id="prodTitle" required>
+                        <input type="hidden" id="prodId"> <div class="mb-3">
+                            <label class="form-label fw-bold">Nombre del Producto</label>
+                            <input type="text" class="form-control" id="prodTitle" required placeholder="Ej: Empanada de Carne">
                         </div>
                         
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label class="form-label">Categoría</label>
+                                <label class="form-label fw-bold">Categoría</label>
                                 <select class="form-select" id="prodCategory" required>
                                     <option value="comidas">Comidas</option>
                                     <option value="postres">Postres</option>
                                 </select>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label class="form-label">Precio ($)</label>
-                                <input type="number" class="form-control" id="prodPrice" required min="0">
+                                <label class="form-label fw-bold">Precio ($)</label>
+                                <input type="number" class="form-control" id="prodPrice" required min="0" placeholder="0.00">
                             </div>
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">Stock Disponible</label>
-                            <input type="number" class="form-control" id="prodStock" required min="0">
+                            <label class="form-label fw-bold">Stock Disponible</label>
+                            <input type="number" class="form-control" id="prodStock" required min="0" placeholder="Cantidad">
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">URL Imagen</label>
-                            <input type="text" class="form-control" id="prodImage" placeholder="img/ejemplo.jpg">
+                            <label class="form-label fw-bold">URL Imagen</label>
+                            <input type="text" class="form-control" id="prodImage" placeholder="img/nombre_archivo.jpg">
+                            <div class="form-text">Usa una ruta local (img/...) o una URL de internet.</div>
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">Descripción</label>
-                            <textarea class="form-control" id="prodDesc" rows="3"></textarea>
+                            <label class="form-label fw-bold">Descripción</label>
+                            <textarea class="form-control" id="prodDesc" rows="3" placeholder="Detalles del producto..."></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-primary w-100">Guardar Datos</button>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary py-2">Guardar Datos</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -192,6 +197,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
     <script src="js/admin.js"></script>
 </body>
 </html>

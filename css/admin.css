@@ -1,0 +1,96 @@
+/* css/admin.css */
+
+/* 1. Importar fuente igual que en la tienda */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f6f9; /* Un gris muy suave para el fondo */
+}
+
+/* 2. BARRA LATERAL (SIDEBAR) */
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: #2c3e50; /* Un tono oscuro profesional */
+    color: #fff;
+    transition: all 0.3s;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.sidebar-header {
+    background: #1a252f;
+    padding: 20px;
+    border-bottom: 1px solid #4b5d67;
+}
+
+/* Enlaces del menú */
+#sidebar .nav-link {
+    color: #b0b8c1;
+    padding: 15px 20px;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+#sidebar .nav-link:hover {
+    color: #fff;
+    background: #34495e;
+    padding-left: 25px; /* Pequeña animación al pasar el mouse */
+    transition: 0.3s;
+}
+
+#sidebar .nav-link.active {
+    background: #8e44ad; /* COLOR DE TU MARCA (Morado/Lila) */
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Iconos del menú */
+#sidebar i {
+    width: 25px; 
+    text-align: center;
+}
+
+/* 3. CONTENIDO PRINCIPAL */
+#content {
+    width: 100%;
+    padding: 30px;
+}
+
+/* Tarjetas del Dashboard */
+.card-counter {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+}
+
+.card-counter:hover {
+    transform: translateY(-5px); /* Efecto de elevación */
+}
+
+.card-counter h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+/* 4. TABLAS Y BOTONES */
+.table {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden; /* Para que los bordes redondos se vean */
+}
+
+.table thead {
+    background-color: #2c3e50;
+    color: white;
+}
+
+/* Botón flotante para agregar producto (opcional si quieres que destaque) */
+.btn-agregar {
+    background-color: #27ae60;
+    color: white;
+    font-weight: bold;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso Administrativo - Sabores Venearg</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/admin.css">
+    <style>
+        /* Estilo específico para centrar el login */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f6f9;
+        }
+        .login-card {
+            width: 100%;
+            max-width: 400px;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            background: white;
+        }
+        .login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .login-header img {
+            width: 80px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-card">
+        <div class="login-header">
+            <img src="img/Logo Sabores Venearg (1).png" alt="Logo">
+            <h4>Acceso Restringido</h4>
+            <p class="text-muted">Ingresa tus credenciales</p>
+        </div>
+
+        <form id="loginForm">
+            <div class="mb-3">
+                <label class="form-label">Usuario</label>
+                <input type="text" id="username" class="form-control" placeholder="admin" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Contraseña</label>
+                <input type="password" id="password" class="form-control" placeholder="••••••" required>
+            </div>
+            <div id="loginError" class="alert alert-danger d-none p-2 text-center small">
+                Credenciales incorrectas
+            </div>
+            <button type="submit" class="btn btn-primary w-100 py-2">Ingresar al Sistema</button>
+            <div class="text-center mt-3">
+                <a href="index.html" class="text-decoration-none text-muted small">← Volver a la Tienda</a>
+            </div>
+        </form>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,14 +1,66 @@
-// js/admin.js
-
 let productsData = [];
 
 document.addEventListener('DOMContentLoaded', () => {
-    inicializarSistema();
+    // 1. VERIFICAR DÓNDE ESTAMOS
+    const path = window.location.pathname;
+    
+    // Si estamos en el admin.html, CHEQUEAR SEGURIDAD
+    if (path.includes('admin.html')) {
+        verificarSesion();
+        inicializarSistema();
+    }
+    
+    // Si estamos en login.html, ACTIVAR LISTENER DEL FORMULARIO
+    if (path.includes('login.html')) {
+        configurarLogin();
+    }
 });
 
-// 1. INICIALIZACIÓN Y PERSISTENCIA (SIMULADA)
+// --- SEGURIDAD ---
+
+function verificarSesion() {
+    const sesionActiva = sessionStorage.getItem('adminLogged');
+    if (!sesionActiva) {
+        // Si no hay llave, lo mandamos al login
+        window.location.href = 'login.html';
+    }
+}
+
+function configurarLogin() {
+    const loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const user = document.getElementById('username').value;
+            const pass = document.getElementById('password').value;
+
+            // CREDENCIALES (Puedes cambiarlas aquí)
+            if (user === 'admin' && pass === '1234') {
+                // Guardamos la "llave" en la sesión
+                sessionStorage.setItem('adminLogged', 'true');
+                window.location.href = 'admin.html';
+            } else {
+                const errorDiv = document.getElementById('loginError');
+                errorDiv.classList.remove('d-none');
+            }
+        });
+    }
+}
+
+// Función para el botón "Salir" del menú lateral
+window.cerrarSesion = function() {
+    sessionStorage.removeItem('adminLogged');
+    window.location.href = 'index.html';
+}
+
+
+// --- TU CÓDIGO ANTERIOR DEL SISTEMA (CRUD) ---
+
 async function inicializarSistema() {
-    // Intentamos leer del LocalStorage
+    // ... (Aquí va TODO el código de inicializarSistema, renderizarTabla, etc. que tenías antes)
+    // ... PEGA AQUÍ EL RESTO DEL CÓDIGO DEL PASO ANTERIOR ...
+    // PARA AHORRAR ESPACIO, SOLO TE MUESTRO DONDE VA:
+    
     const storedProducts = localStorage.getItem('productsDB');
 
     if (storedProducts) {
@@ -16,25 +68,19 @@ async function inicializarSistema() {
         renderizarTabla();
         actualizarDashboard();
     } else {
-        // Si es la primera vez, leemos el JSON y lo guardamos en LocalStorage
         try {
             const response = await fetch('./data/products.json');
             const data = await response.json();
-            
-            // Normalizamos para asegurar que leemos .products
             if(data.products) {
                 productsData = data.products;
             } else {
-                productsData = data; // Por si el JSON es un array directo
+                productsData = data;
             }
-
-            // GUARDAMOS EN DB BROWSER
             guardarEnLocalStorage();
             renderizarTabla();
             actualizarDashboard();
         } catch (error) {
-            console.error("Error cargando datos iniciales:", error);
-            alert("Error cargando la base de datos inicial.");
+            console.error("Error cargando datos:", error);
         }
     }
 }
@@ -44,26 +90,22 @@ function guardarEnLocalStorage() {
     actualizarDashboard();
 }
 
-// 2. NAVEGACIÓN
+// NAVEGACIÓN
 window.mostrarSeccion = function(seccionId) {
-    // Ocultar todas
     document.getElementById('seccion-dashboard').style.display = 'none';
     document.getElementById('seccion-productos').style.display = 'none';
     document.getElementById('seccion-nuevo-pedido').style.display = 'none';
 
-    // Mostrar seleccionada
     document.getElementById(`seccion-${seccionId}`).style.display = 'block';
 
-    // Actualizar sidebar activo
     document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
     event.currentTarget.classList.add('active');
 }
 
-// 3. GESTIÓN DE PRODUCTOS (CRUD)
-
-// b) Listar Productos (Renderizar Tabla)
+// GESTIÓN DE PRODUCTOS
 function renderizarTabla(filtro = "") {
     const tbody = document.getElementById('tabla-productos-body');
+    if(!tbody) return; // Seguridad por si no cargó el HTML
     tbody.innerHTML = "";
 
     const datosFiltrados = productsData.filter(p => 
@@ -79,37 +121,34 @@ function renderizarTabla(filtro = "") {
             <td class="fw-bold">${p.title}</td>
             <td><span class="badge bg-secondary">${p.category}</span></td>
             <td>$${p.price}</td>
+            <td><span class="badge ${p.stock < 5 ? 'bg-danger' : 'bg-success'}">${p.stock} u.</span></td>
             <td>
-                <span class="badge ${p.stock < 5 ? 'bg-danger' : 'bg-success'}">
-                    ${p.stock} u.
-                </span>
-            </td>
-            <td>
-                <button class="btn btn-sm btn-warning me-1" onclick="editarProducto(${p.id})">
-                    <i class="fas fa-edit"></i>
-                </button>
-                <button class="btn btn-sm btn-danger" onclick="eliminarProducto(${p.id})">
-                    <i class="fas fa-trash"></i>
-                </button>
+                <button class="btn btn-sm btn-warning me-1" onclick="editarProducto(${p.id})"><i class="fas fa-edit"></i></button>
+                <button class="btn btn-sm btn-danger" onclick="eliminarProducto(${p.id})"><i class="fas fa-trash"></i></button>
             </td>
         `;
         tbody.appendChild(tr);
     });
 }
 
-// c) Buscar Producto
-document.getElementById('buscar-producto').addEventListener('input', (e) => {
-    renderizarTabla(e.target.value);
-});
+// Listeners y Modales
+const buscarInput = document.getElementById('buscar-producto');
+if(buscarInput) {
+    buscarInput.addEventListener('input', (e) => renderizarTabla(e.target.value));
+}
 
-// a) y d) Agregar / Actualizar (Manejo del Modal)
-const modalProducto = new bootstrap.Modal(document.getElementById('productoModal'));
+// INICIALIZAR MODAL SOLO SI EXISTE EL ELEMENTO (Para evitar error en login.html)
+let modalProducto;
+const modalEl = document.getElementById('productoModal');
+if(modalEl) {
+    modalProducto = new bootstrap.Modal(modalEl);
+}
 
 window.abrirModalProducto = function() {
     document.getElementById('productoForm').reset();
-    document.getElementById('prodId').value = ""; // ID vacío = Crear nuevo
+    document.getElementById('prodId').value = "";
     document.getElementById('modalTitle').innerText = "Agregar Producto";
-    modalProducto.show();
+    if(modalProducto) modalProducto.show();
 }
 
 window.editarProducto = function(id) {
@@ -124,56 +163,54 @@ window.editarProducto = function(id) {
         document.getElementById('prodDesc').value = p.description;
         
         document.getElementById('modalTitle').innerText = "Actualizar Producto";
-        modalProducto.show();
+        if(modalProducto) modalProducto.show();
     }
 }
 
-// Guardar (Submit del form)
-document.getElementById('productoForm').addEventListener('submit', (e) => {
-    e.preventDefault();
+const prodForm = document.getElementById('productoForm');
+if(prodForm) {
+    prodForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const id = document.getElementById('prodId').value;
+        const title = document.getElementById('prodTitle').value;
+        const category = document.getElementById('prodCategory').value;
+        const price = Number(document.getElementById('prodPrice').value);
+        const stock = Number(document.getElementById('prodStock').value);
+        const image = document.getElementById('prodImage').value || "https://via.placeholder.com/150";
+        const description = document.getElementById('prodDesc').value;
 
-    const id = document.getElementById('prodId').value;
-    const title = document.getElementById('prodTitle').value;
-    const category = document.getElementById('prodCategory').value;
-    const price = Number(document.getElementById('prodPrice').value);
-    const stock = Number(document.getElementById('prodStock').value);
-    const image = document.getElementById('prodImage').value || "https://via.placeholder.com/150";
-    const description = document.getElementById('prodDesc').value;
-
-    if(id) {
-        // ACTUALIZAR EXISTENTE
-        const index = productsData.findIndex(p => p.id == id);
-        if(index !== -1) {
-            productsData[index] = { ...productsData[index], title, category, price, stock, image, description };
-            alert("Producto actualizado correctamente.");
+        if(id) {
+            const index = productsData.findIndex(p => p.id == id);
+            if(index !== -1) {
+                productsData[index] = { ...productsData[index], title, category, price, stock, image, description };
+                alert("Producto actualizado");
+            }
+        } else {
+            const newProduct = { id: Date.now(), title, category, price, stock, image, description };
+            productsData.push(newProduct);
+            alert("Producto agregado");
         }
-    } else {
-        // CREAR NUEVO (Generar ID único basado en timestamp)
-        const newProduct = {
-            id: Date.now(), // ID numérico único
-            title, category, price, stock, image, description
-        };
-        productsData.push(newProduct);
-        alert("Producto agregado correctamente.");
-    }
+        guardarEnLocalStorage();
+        renderizarTabla();
+        if(modalProducto) modalProducto.hide();
+    });
+}
 
-    guardarEnLocalStorage();
-    renderizarTabla();
-    modalProducto.hide();
-});
-
-// e) Eliminar Producto
 window.eliminarProducto = function(id) {
-    if(confirm("¿Estás seguro de eliminar el producto #" + id + "?")) {
+    if(confirm("¿Eliminar producto #" + id + "?")) {
         productsData = productsData.filter(p => p.id !== id);
         guardarEnLocalStorage();
         renderizarTabla();
     }
 }
 
-// 4. ACTUALIZAR DASHBOARD
 function actualizarDashboard() {
-    document.getElementById('dash-total-productos').innerText = productsData.length;
-    const bajoStock = productsData.filter(p => p.stock < 5).length;
-    document.getElementById('dash-stock-bajo').innerText = bajoStock;
+    const totalEl = document.getElementById('dash-total-productos');
+    const bajoEl = document.getElementById('dash-stock-bajo');
+    
+    if(totalEl) totalEl.innerText = productsData.length;
+    if(bajoEl) {
+        const bajoStock = productsData.filter(p => p.stock < 5).length;
+        bajoEl.innerText = bajoStock;
+    }
 }
